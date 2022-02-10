@@ -89,7 +89,7 @@
         // name: readAll
         // description: read all information in pizzeria table
         public function readAll(){
-            $sql = `SELECT nombre_pizza AS name_pizza, tamanio AS size, tipo_masa AS typeDough, 
+            $sql = `SELECT id_pizza, nombre_pizza AS name_pizza, tamanio AS size, tipo_masa AS typeDough, 
             precio AS price, descripcion AS description FROM pizzas`;
             $params = array(null);
             return Database::getRows($sql, $params);
@@ -102,6 +102,15 @@
             $sql = `SELECT nombre_pizza AS name_pizza, tamanio AS size, tipo_masa AS typeDough, 
             precio AS price, descripcion AS description FROM pizzas WHERE id_pizza = ?`;
             $params = array($this->id);
+            return Database::getRows($sql, $params);
+        }
+
+        // name: readAllNameAndId
+        // parameters: null
+        // description: read Name and Id Informatión for Select
+        public function readAllNameAndId(){
+            $sql = `SELECT nombre_pizza AS name_pizza, id_pizza FROM pizzas`;
+            $params = array(null);
             return Database::getRows($sql, $params);
         }
 

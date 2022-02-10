@@ -50,22 +50,13 @@
 
         // name: readAll
         // description: read all information in pizzeria table
-        public function readAll(){
-            $sql = `SELECT nombre_pizza AS name_pizza, tamanio AS size, tipo_masa AS typeDough, 
-            precio AS price, descripcion AS description FROM pizzas`;
+        public function readDetailsForId(){
+            $sql = `SELECT P.nombre_pizza, P.precio, P.tipo_masa, P.descripcion, P.tamanio 
+            FROM ordenes AS O INNER JOIN pizzas AS P WHERE O.id_orden = ?`;
             $params = array(null);
             return Database::getRows($sql, $params);
         }
 
-        // name: readForId
-        // parameters: id
-        // description: read all information in pizzeria table whit id
-        public function readAllForId(){
-            $sql = `SELECT nombre_pizza AS name_pizza, tamanio AS size, tipo_masa AS typeDough, 
-            precio AS price, descripcion AS description FROM pizzas WHERE id_pizza = ?`;
-            $params = array($this->id);
-            return Database::getRows($sql, $params);
-        }
 
         // name: readForId
         // parameters: name, size, typeDough, price, description, id
@@ -80,8 +71,8 @@
         // parameters: name, size, typeDough, price, description
         // description: create item in table pizza
         public function create(){
-            $sql = `INSERT INTO pizzas (nombre_pizza, tamanio, tipo_masa, precio, descripcion) VALUES (?,?,?,?,?)`;
-            $params = array($this->name, $this->size, $this->typeDough, $this->price, $this->description);
+            $sql = `INSERT INTO ordenes(cantidad, id_pizza) VALUES (?,?)`;
+            $params = array($this->quantity, $this->idPizza);
             return Database::executeRow($sql, $params);
         }
 
@@ -89,7 +80,7 @@
         // parameters: name, size, typeDough, price, description
         // description: create item in table pizza
         public function deleteForId(){
-            $sql = `DELETE FROM pizzas WHERE id_pizza = ?`;
+            $sql = `DELETE FROM ordenes WHERE id_orden = ?`;
             $params = array($this->id);
             return Database::executeRow($sql, $params);
         }
