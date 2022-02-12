@@ -17,7 +17,6 @@
                         $_POST = $pizza->validateForm($_POST);
                         if($pizza->setName($_POST['nombre']))
                         {
-                            echo $_POST['tamanio'];
                             if($pizza->setSize($_POST['tamanio']))
                             {
                                 if($pizza->setTypeDough($_POST['tipo_masa']))

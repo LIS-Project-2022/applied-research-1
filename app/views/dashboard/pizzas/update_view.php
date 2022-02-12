@@ -8,47 +8,20 @@
         <div class="mb-3">
             <label for="tamanio" class="form-label">Tamaño de Pizza</label>
             <select class="form-select" name='tamanio'>
-                <option value=''>Seleccione el tamaño de pizza</option>
-                <?php
-                    foreach($sizes as $size)
-                    {
-                        if($size == trim($pizza->getSize()) )
-                        {
-                            print("
-                                <option value='\"$size\"' selected>".$size."</option>
-                            ");
-                        }
-                        else
-                        {
-                            print("
-                                <option value='\"$size\"'>".$size."</option>
-                            ");
-                        }
-                    }
-                ?>
+                <option value='' selected>Seleccione el tamaño de pizza</option>
+                <option value="Personal">Personal</option>
+                <option value="Mediana">Mediana</option>
+                <option value="Gigante">Gigante</option>
+                <option value="4 Estaciones">4 Estaciones</option>
             </select>
         </div>
         <div class="mb-3">
             <label for="tipo_masa" class="form-label">Tipo de masa de Pizza</label>
             <select class="form-select" name='tipo_masa'>
-                <option value=''>Seleccione el tipo de masa de pizza</option>
-                <?php
-                    foreach($tipos as $tipo)
-                    {
-                        if($tipo == trim($pizza->getTypeDough()) )
-                        {
-                            print("
-                                <option value='\"$tipo\"' selected>".$tipo."</option>
-                            ");
-                        }
-                        else
-                        {
-                            print("
-                                <option value='\"$tipo\"'>".$tipo."</option>
-                            ");
-                        }
-                    }
-                ?>
+                <option value='' selected>Seleccione el tipo de masa de pizza</option>
+                <option value="Delgada">Delgada</option>
+                <option value="Alta">Alta</option>
+                <option value="Pan pizza">Pan pizza</option>
             </select>
         </div>
         <div class="mb-3">
