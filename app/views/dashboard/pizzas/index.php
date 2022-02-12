@@ -20,18 +20,25 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Pizza de Jamón</td>
-                    <td>Mediana</td>
-                    <td>Alta</td>
-                    <td>$5.00</td>
-                    <td>Rica pizza de jamón</td>
-                    <td>
-                        <a class="btn btn-success" href="update.php" role="button">Editar</a>
-                        <a class="btn btn-danger" href="delete.php" role="button">Eliminar</a>
-                    </td>
-                </tr>
+                <?php
+                    foreach($pizzas as $pizza)
+                    {
+                        print("
+                        <tr>
+                            <td scope='row'>".$pizza['id_pizza']."</th>
+                            <td>".$pizza['name_pizza']."</td>
+                            <td>".$pizza['size']."</td>
+                            <td>".$pizza['typeDough']."</td>
+                            <td>$".$pizza['price']."</td>
+                            <td>".$pizza['description']."</td>
+                            <td>
+                                <a class='btn btn-success' href='update.php?id=".$pizza['id_pizza']."' role='button'>Editar</a>
+                                <a class='btn btn-danger' href='delete.php?id=".$pizza['id_pizza']."' role='button'>Eliminar</a>
+                            </td>
+                        </tr>
+                        ");
+                    }
+                ?>
             </tbody>
         </table>
     </div>

@@ -5,19 +5,22 @@
         private static $id = null;
         private static $error = null;
 
-        private function connect(){
+        private static function connect(){
             $server = "localhost";
             $database = "pizzeria_sorwx";
             $username = "root";
             $password = "";
-            try{
+            try
+            {
                 @self::$connection = new PDO("mysql:host=$server; dbname=$database; charset=utf8", $username, $password);
-            }catch(PDOException $exception){
+            }
+            catch(PDOException $exception)
+            {
                 throw new Exception($exception->getCode());
             }
         }
         
-        private function desconnect(){
+        private static function desconnect(){
             self::$error = self::$statement->errorInfo();
             self::$connection = null;
         }
