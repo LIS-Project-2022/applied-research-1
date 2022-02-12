@@ -41,7 +41,8 @@
             return true;
         }
 
-        public function getId(){
+        public function getIdPizza()
+        {
             return $this->idPizza;
         }
         #endregion
