@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-02-2022 a las 00:55:09
--- Versión del servidor: 10.4.22-MariaDB
--- Versión de PHP: 8.1.0
+-- Tiempo de generación: 12-02-2022 a las 06:55:08
+-- Versión del servidor: 10.4.17-MariaDB
+-- Versión de PHP: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,11 +44,19 @@ CREATE TABLE `ordenes` (
 CREATE TABLE `pizzas` (
   `id_pizza` int(11) NOT NULL,
   `nombre_pizza` varchar(25) COLLATE utf8_spanish_ci NOT NULL,
-  `tamanio` int(11) NOT NULL,
+  `tamanio` varchar(25) COLLATE utf8_spanish_ci NOT NULL,
   `tipo_masa` varchar(25) COLLATE utf8_spanish_ci NOT NULL,
   `precio` decimal(5,2) NOT NULL,
   `descripcion` varchar(100) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `pizzas`
+--
+
+INSERT INTO `pizzas` (`id_pizza`, `nombre_pizza`, `tamanio`, `tipo_masa`, `precio`, `descripcion`) VALUES
+(1, 'Pizza de jamo', 'Personal', 'Delgada', '10.00', 'Holaaa'),
+(2, 'Pizza de peperoni', 'Gigante', 'Alta', '5.00', 'Rica pizza de peperoni');
 
 --
 -- Índices para tablas volcadas
@@ -81,7 +89,7 @@ ALTER TABLE `ordenes`
 -- AUTO_INCREMENT de la tabla `pizzas`
 --
 ALTER TABLE `pizzas`
-  MODIFY `id_pizza` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pizza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
